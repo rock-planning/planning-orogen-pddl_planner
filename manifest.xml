@@ -1,16 +1,9 @@
 <package>
-  <description brief="Interface for pddl planners">
-  
+  <description brief="Component for using pddl planners">
   </description>
   <author>Thomas Roehr/thomas.roehr@dfki.de</author>
   <license></license>
   <url>http://</url>
   <logo>http://</logo>
-  <!--
-   To add any dependencies use the depend tag
-  <depend package="dummy-dependency-0" />
-	...
-  <depend package="dummy-dependency-n-1" />
-  <depend package="dummy-dependency-n" />
-  -->
+  <depend package="planning/pddl_planner" />
 </package>
