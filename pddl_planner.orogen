@@ -1,0 +1,38 @@
+name "pddl_planner"
+version "0.1"
+
+using_library 'pddl_planner'
+import_types_from 'pddl_planner/PDDLPlannerTypes.hpp'
+
+task_context "Task" do
+   property("planner_name", "/std/string", "LAMA").
+       doc("planner name if different from binary")
+
+   operation("set_domain_description").
+       returns("bool").
+       argument("domain_name", "/std/string").
+       argument("description", "/std/string").
+       doc("File to the the domain description")
+
+   operation("set_action_description").
+       returns("bool").
+       argument("action_name", "/std/string", "Name of the action").
+       argument("description","/std/string","PDDL description for an given action").
+       doc("Set PDDL action description")
+
+   operation("request_plan_candidates").
+       returns("pddl_planner/PlanCandidates").
+       argument("problem", "/std/string", "Problem description").
+       doc("Request plan for a given pddl problem")
+end
+
+
+# Declares a deployment, i.e. an actual executable that contains various tasks.
+deployment "pddl_planner_test" do
+    # This is a test deployment that should not be installed
+    do_not_install
+
+    # Declares it as periodic, with a period of 100ms
+    task("pddl_planner", "Task")
+end
+
