@@ -8,8 +8,7 @@
 
 namespace pddl_planner {
 
-    class PDDLPlanner;
-    class PDDLPlannerInterface;
+    class Planning;
 
     /*! \class Task 
      * \brief The task context provides and requires services. It uses an ExecutionEngine to perform its functions.
@@ -29,8 +28,10 @@ namespace pddl_planner {
     {
 	friend class TaskBase;
     protected:
-        PDDLPlanner* mPlanner;
-        std::map<std::string, PDDLPlannerInterface*> mKnownPlanners;
+        Planning* mPlanning;
+
+        // Name of planner that shall be used
+        std::string mPlannerName;
 
         /* Handler for the request_plan_candidates operation
          */
