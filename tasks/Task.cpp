@@ -30,7 +30,7 @@ Task::~Task()
     }
 
     try {
-        candidates = mPlanning->plan(problem);
+        candidates = mPlanning->plan(problem, mPlannerName);
     } catch(const pddl_planner::PlanGenerationException& e)
     {
         RTT::log(RTT::Warning) << "Plan generation failed: " << e.what() << RTT::endlog();
